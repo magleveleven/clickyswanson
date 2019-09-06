@@ -1,3 +1,22 @@
+1) Objective:  Create an app for a single player to select images that are randomized in sequence after each each selection. Each selection without repeating results in an incremental point, and a repeat selection results in a game over. 
+
+2) Set up:  
+  a) Create a Header with title, instructions, current game score, and top score tracker (create a CSS file and component)
+
+  b) Create a Section beneath the Header (a div) with more detailed rules about the game (create a CSS file).
+  
+  c) Create another Section beneath that contains the images (create a CSS file and component).
+    i) Display 12 different images to the user 
+    ii) Upon each selection check the following: 
+       - Was the image previously selected? 
+          - If No, add an incremental point to the score, randomize the arrangment of the images
+          - If Yes, animate teh images, message Game Over, reset current game score to zero
+              - If current game score is greater than Top Score, make it the new Top Score
+       
+   d) Create a footer (create a CSS file).
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

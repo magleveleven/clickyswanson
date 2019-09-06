@@ -19,3 +19,6 @@ function Header() {
   }
 
 export default Header;
+
+
+//Do I need a component for score calcluation? 
