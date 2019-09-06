@@ -3,17 +3,18 @@ import "../styles/Header.css";
 
 const styles = {
     headerStyle: {
-      background: "red"
+      color: "pink"
     },
     headingStyle: {
-      fontSize: 100
+      fontSize: 10
     }
   };
 
 function Header() {
     return (
       <header style={styles.headingStyle} className="header">
-        <h1 style={styles.headingStyle}>Clicky Swanson</h1>
+        <h1>Clicky Swanson</h1>
+        <nav styles={styles.headingStyle} className="navi">score box area</nav>
       </header> 
     );
   }
