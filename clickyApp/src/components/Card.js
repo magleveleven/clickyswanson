@@ -1,15 +1,13 @@
 import React from 'react';
 
-class Card extends React.Component {
-    render () {
+
+    
+function Card (props) {
         return (
-            <div className="imageArea">
-              <div className="testarea">
-                image area hopefully
-              </div>
+            <div className="card" style={{ width: '12rem'}}>
+              <img className="image" onClick={() => props.clickedCard(props.id)} src={props.image} alt={props.id}/>
               </div>
               )
-    }
-};
+    };
 
 export default Card;

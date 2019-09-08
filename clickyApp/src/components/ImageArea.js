@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/ImageArea.css";
-//import PropTypes from "prop-types";
   
   
 
