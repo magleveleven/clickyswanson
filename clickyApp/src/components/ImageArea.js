@@ -17,10 +17,6 @@ function imageArea() {
             <div className="container">
             </div>
             <div className="rons">
-          <ul>
-            <img src="./ron1.jpg" alt="1"/>
-            <img src="../ron2.jpg" alt="2" />
-          </ul>
          </div>
 
 

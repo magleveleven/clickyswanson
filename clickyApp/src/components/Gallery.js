@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 
 class Gallery extends React.Component {
-  renderImage(imageUrl) {
+  renderImage(cards) {
     return (
       <div>
         <img src={imageUrl} />
@@ -15,16 +15,29 @@ class Gallery extends React.Component {
     return (
       <div className="gallery">
         <div className="images">
-          {this.props.imageUrl.map(imageUrl => this.renderImage(imageUrl))}
+          {this.props.imageUrls.map(imageUrl => this.renderImage(imageUrl))}
         </div>
       </div>
     );
   }
 }
 Gallery.propTypes = {
-  imageUrl: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
+  imageUrls: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
 };
 
+const cards = [
+    {
+        id: "ron1",
+        image: "./styles/images/ron1.jpg",
+        isClicked: false,
+    },
+    {
+        id: "ron2",
+        image: "./styles/images/ron2.jpg",
+        isClicked: false,
+    }
+
+]
 
 export default Gallery;
 
