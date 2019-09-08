@@ -16,10 +16,11 @@ function Header() {
         <h1>Clicky Swanson</h1>
         <nav styles={styles.headingStyle} className="navi">score box area</nav>
       </header> 
+
     );
   }
 
 export default Header;
 
 
-//Do I need a component for score calcluation? 
+
