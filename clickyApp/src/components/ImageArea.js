@@ -10,15 +10,12 @@ const styles = {
   };
   
 
-function imageArea() {
+function imageArea(props) {
     return (
         <section style={styles.imageAreaStyles} className="sectionTest">
-            <div className="container">
+            <div className="row">
+                {props.children}
             </div>
-            <div className="rons">
-         </div>
-
-
         </section>
     );
 }

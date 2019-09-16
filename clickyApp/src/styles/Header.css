@@ -1,5 +1,10 @@
-h1 .header {
+h1 {
     text-align: center;
-    color: brown;
-    font-size: 10px;
+    color: rgb(255, 92, 119);
+  }
+
+  .navi {
+    text-align: center;
+    font-size: 30px;
+
   }

@@ -3,20 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Header from './components/Header';
-import ImageArea from './components/ImageArea';
+import Scoring from './components/Scoring';
+
 import * as serviceWorker from './serviceWorker';
 import 'materialize-css/dist/css/materialize.min.css';
 
-
-ReactDOM.render(<Header />, document.getElementById('root'));
-
+ReactDOM.render(<Header />, document.getElementById('head'));
+ReactDOM.render(<Scoring />, document.getElementById('score'));
 ReactDOM.render(<App />, document.getElementById('instruction'));
 
-//ReactDOM.render(<ImageArea />, document.getElementById('sectionTest'));
 
 
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

@@ -3,7 +3,7 @@ import "../styles/Header.css";
 
 const styles = {
     headerStyle: {
-      color: "pink"
+      color: "orange"
     },
     headingStyle: {
       fontSize: 10
@@ -12,9 +12,9 @@ const styles = {
 
 function Header() {
     return (
-      <header style={styles.headingStyle} className="header">
+      <header style={styles.headingStyle} id="header">
         <h1>Clicky Swanson</h1>
-        <nav styles={styles.headingStyle} className="navi">score box area</nav>
+        <nav styles={styles.headingStyle} id="navi">- - -</nav>
       </header> 
 
     );
