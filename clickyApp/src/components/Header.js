@@ -1,9 +1,6 @@
 import React from "react";
 
-
 import "../styles/Header.css";
-import StartScore from "./StartScore";
-
 
 const styles = {
   
@@ -19,7 +16,6 @@ function Header(props) {
         <h1 id="mainheader">Clicky Swanson</h1>
         <div styles={styles.headingStyle} id="navi">
           <div className="scoreArea">
-            <StartScore />
           </div>
       
           <div className="container" styles={styles.headingStyle} id="playmessage">
