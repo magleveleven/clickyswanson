@@ -19,7 +19,8 @@ function Header(props) {
           </div>
       
           <div className="container" styles={styles.headingStyle} id="playmessage">
-          Play and earn points by clicking each image once, careful not to repeat any selection.......... Or don't play, I don't care.  
+          Play and earn points by clicking each of my faces once, careful not to repeat any selection.......... 
+          Or don't play, I don't care.  
           </div>
         </div>
       </div> 

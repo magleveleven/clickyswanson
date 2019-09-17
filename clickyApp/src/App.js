@@ -87,66 +87,46 @@ console.log(cards);
 //Make a starting state with the following: game and top scores, and inventory of selected cards, and 
 //default a boolean variable to false for storing wrong selection
 
-
+//Create a starting state/class
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
+  state = {
     score: 0,
     topscore: 0, 
     cardsGuessed: [],
     wrongAnswer: false,
+    alert: "Let's play!",
     cards
-    }
   }
-
-
-//Randomize arrangement of cards
-shuffleCards = (arr) =>{
-  for (let i=0; i<arr.length; i++) {
-    let j = Math.floor(Math.random() *( i+1) );
-    [arr[i], arr[j]]  =  [arr[j], arr[i]];
-  }
-  return arr;
-  }
-
-
-//Have a starting place for cards
-cardStart = () => {
-  this.state.cards.map((cards) => {
-    cards.isClicked=false;
-    return cards;
-  })
-}
 
 //Logic if card is selected, check if previously selected
 handleCardClick = (id) => {
   if(this.state.cardsGuessed.includes(id)){
-    if(this.state.score > this.state.topscore) {
-      this.setState({topscore: this.state.score});
-    }
-      this.setState({score: 0})
-      this.setState({wrongAnswer: true})
-      let newCardShuffle = this.shuffleCards(this.state.cards);
-      this.setState( {cards: [...newCardShuffle]});
-      this.cardStart();
+    this.setState ({
+      score: 0,
+      wrongAnswer: true,
+      cardsGuessed: [],
+      alert: "Oops, try again!",
+    });
+
   } else {
-      this.setState ({
-        wrongAnswer: false,
+    this.setState ({
+      //Add point to current score for correct click
+      score: this.state.score +=1,
+      wrongAnswer: false,
+      alert: "Woot, keep going",
+      //Randomize arrangement of cards in array, take 50% chance that number will be positive, if  so, sort
+      cards: this.state.cards.sort(() => Math.random() -0.5)
+    });
+    //Update top score if current score is greater
+    if(this.state.topscore<this.state.score){
+      this.setState({
+        topscore: this.state.score})}
+    this.setState({
+      //Make list of cards clicked to check if previoulsy clicked
+      cardsGuessed: [...this.state.cardsGuessed, id]
     })
-      //Make variable to hold cards during gameplay 
-      let gameCards = [...this.state.cards]
-      gameCards[id].isClicked = true;
-      this.setState({cards: [...gameCards] })
-      let newCardShuffle = this.shuffleCards(gameCards);
-      this.setState( {cards: [...newCardShuffle] });
-      //If not previously, selected, increment 1 point to score and randomize arrangement of cards
-      this.setState((state) => ({score: state.score +=1}));
-    }   
   }
-
-
+  }
 //Display the scores
 render() {
   return (
@@ -158,31 +138,25 @@ render() {
         topscore={this.state.topscore}/>
 
       <ImageArea />
-          <div className="arrange">{cards.map(character => {
-          return (
-            <div className="container">{
-              this.state.cards.map( (id) => (
-              <img src={props.image} onClick={ () => {props.handleCardClick(props.id)} } alt={props.id} className="image"/>
-              )
-              )
-            }
-            <div>
-            <CardImages
-              key = {character.id}
-              image = {character.image}
-              id = {character.id}
-              clicked = {character.clicked}
-              cardClick={this.handleCardClick}
-            />
-            </div>
-          </div>
-          )
-        })}
+          <div className="msg">{this.state.alert}</div>
+          <div className="col s12 m6 l3">{cards.map(character => {
+            return (
+              <CardImages
+                key = {character.id}
+                image = {character.image}
+                id = {character.id}
+                clicked = {character.clicked}
+                cardClick={this.handleCardClick}
+              />
+            )
+          })
+          }
           </div>
           }
       <Footer />
       </div>)
-}}
+}
+}
 
 
 
