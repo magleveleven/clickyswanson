@@ -10,3 +10,8 @@
   color: whitesmoke;
 
 }
+
+.grid {
+  display: flex; 
+  flex-flow: row wrap; 
+}

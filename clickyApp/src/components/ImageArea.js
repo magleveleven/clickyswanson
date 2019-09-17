@@ -4,8 +4,6 @@ import "../styles/ImageArea.css";
 function imageArea() {
     return (
         <div>
-            <div className="row">
-            </div>
         </div>
     );
 }

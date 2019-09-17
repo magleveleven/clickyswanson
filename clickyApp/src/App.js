@@ -139,7 +139,8 @@ render() {
 
       <ImageArea />
           <div className="msg">{this.state.alert}</div>
-          <div className="col s12 m6 l3">{cards.map(character => {
+          <div className="container">
+          <section className="grid">{cards.map(character => {
             return (
               <CardImages
                 key = {character.id}
@@ -151,8 +152,9 @@ render() {
             )
           })
           }
+          </section>
           </div>
-          }
+          
       <Footer />
       </div>)
 }
