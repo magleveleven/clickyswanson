@@ -3,20 +3,15 @@ import "../styles/ImageArea.css";
   
   
 
-const styles = {
-    imageAreaStyles: {
-      background: "lightgrey",
-    }
-  };
-  
+
 
 function imageArea(props) {
     return (
-        <section style={styles.imageAreaStyles} className="sectionTest">
+        <div>
             <div className="row">
                 {props.children}
             </div>
-        </section>
+        </div>
     );
 }
 

@@ -1,10 +1,29 @@
-h1 {
+#mainheader {
     text-align: center;
-    color: rgb(255, 92, 119);
+    color: #823c16;
+    font-size: 35px;
+    box-sizing: border-box,
+
   }
 
-  .navi {
-    text-align: center;
-    font-size: 30px;
+#navi {
+  text-align: center;
+  background-color: #823c16;
+  color: whitesmoke
+  }
+
+#playmessage {
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  }
+
+  .headertop {
+    padding-top: 1;
+    box-sizing: border-box,
+  }
+
+  #scoreformat {
+    font-size: 25px;
 
   }

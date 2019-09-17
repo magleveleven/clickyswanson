@@ -1,21 +1,32 @@
 import React from "react";
+
+
 import "../styles/Header.css";
+import StartScore from "./StartScore";
+
 
 const styles = {
-    headerStyle: {
-      color: "orange"
-    },
+  
     headingStyle: {
-      fontSize: 10
+      fontSize: 30,
+      color: "#c96010",
     }
   };
 
-function Header() {
+function Header(props) {
     return (
-      <header style={styles.headingStyle} id="header">
-        <h1>Clicky Swanson</h1>
-        <nav styles={styles.headingStyle} id="navi">- - -</nav>
-      </header> 
+      <div className="headertop">
+        <h1 id="mainheader">Clicky Swanson</h1>
+        <div styles={styles.headingStyle} id="navi">
+          <div className="scoreArea">
+            <StartScore />
+          </div>
+      
+          <div className="container" styles={styles.headingStyle} id="playmessage">
+          Play and earn points by clicking each image once, careful not to repeat any selection.......... Or don't play, I don't care.  
+          </div>
+        </div>
+      </div> 
 
     );
   }

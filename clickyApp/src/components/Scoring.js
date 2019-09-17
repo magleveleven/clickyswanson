@@ -1,10 +1,9 @@
 import React from 'react';
 
-
-    
-function Scoring () {
+function Scoring(props) {
         return (
-            <div className="scoreArea" style={{ width: '10rem'}}>
+            <div>
+                <h6>Y Score: {props.score}  |  Top Score: {props.topscore} </h6>
              </div>
               )
     };

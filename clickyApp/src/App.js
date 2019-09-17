@@ -1,7 +1,13 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
-import Scoring from './components/Scoring';
 import Card from './components/Card';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import ImageArea from './components/ImageArea';
+import Scoring from './components/Scoring';
+
+
 
 //Make list of image cards
 const cards = [
@@ -84,30 +90,50 @@ console.log(cards);
 
 class App extends React.Component {
 
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = {
     score: 0,
     topscore: 0, 
     cardsGuessed: [],
     wrongAnswer: false,
-    arrCards: cards
-    
+    cards
+    }
   }
+//Randomize arrangement of cards
+shuffleCards = arr =>{
+  for (let i=0; i<arr.length; i++) {
+    let j = Math.floor(Math.random()*(i+1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
 //Logic if card is selected, check if previously selected
 //If not previously, selected, increment 1 point to score and randomize arrangement of cards
 
-handleCardGuessed = (id) =>  {
-  if(this.state.cardsGuessed.includes(id)) {
-    // We always use the setState method to update a component's state
-    this.setState({
-      score: 0,
-      cardsGuessed: [],
-      wrongAnswer: true,
+cardStart = () => {
+  if(this.state.cards.map((cards) => {
+    cards.isClicked=false;
+    return cards;
+  })
+
+cardClick = (cardIndex) => {
+  if (this.state.card[cardIndex].isClicked === true) {
+    if(this.state.score > this.state.topscore) {
+      this.setState({topscore: this.state.score});
+    }
+      this.setState({score: 0})
+      this.setState({wrongAnswer: true})
+      let newCardShuffle = this.shuffleCards(this.state.cards);
+      this.setState( {cards: [...newCardShuffle]});
+      this.cardStart();
+  } else {
+      this.setState ({
+        wrongAnswer: false,
     })
-  }
-  else 
-    {
-    this.setState({
-    score: this.setState.score +=1,
+      let gameCards = [...this.state.cards]
+  }}
+    this.setState.score: +=1,
     //MATH RANDOM SORT???
     });
     this.setState({
@@ -122,31 +148,32 @@ handleCardGuessed = (id) =>  {
 render() {
   return (
     <div>
-        <p1>
-          Play and earn points by clicking each image once, careful not to repeat any selection. 
-          Or don't play, I don't care.  
-        </p1>
-      <Scoring 
+      <Header />,
+    <div>
+      <Scoring
       score={this.state.score}
       topscore={this.state.topscore}/>
       
-
+      <ImageArea />
       {cards.map(face => {
-        return (
-          <Card 
-            key = {face.id}
-            image = {face.image}
-            id = {face.id}
-            clicked = {face.clicked}
-            guessedCard = {this.handleCardGuessed}
-          />
+      return (
+      <Card 
+        key = {face.id}
+        image = {face.image}
+        id = {face.id}
+        clicked = {face.clicked}
+        guessedCard = {this.handleCardGuessed}
+      />
         )
       })
       }
+      <Footer />
+    </div>
     </div>
   );
 }
 
 }
+ReactDOM.render(<Header />, document.getElementById('head'));
 
 export default App;
